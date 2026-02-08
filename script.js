@@ -220,55 +220,47 @@ const handleScroll = throttle(() => {
     const navLinks = document.querySelectorAll('.nav-link');
     const navbar = document.querySelector('.navbar');
     const hero = document.querySelector('.hero-content');
-    
+
+    if (!navbar) return;
+
     // Update active nav link
     let current = '';
     const navHeight = navbar.offsetHeight;
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop - navHeight - 100;
         const sectionHeight = section.clientHeight;
-        
+		
         if (scrolled >= sectionTop && scrolled < sectionTop + sectionHeight) {
             current = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').substring(1) === current) {
             link.classList.add('active');
         }
     });
-    
+
     // Add shadow to navbar on scroll
     if (scrolled > 50) {
         navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
     } else {
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
     }
-<<<<<<< HEAD
-});
 
-// Parallax effect for hero section (desktop / tablet only)
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero-content');
-    if (!hero) return;
-
-    if (window.innerWidth > 768) {
-        // Desktop / large tablet: keep subtle parallax + fade
-=======
-    
-    // Parallax effect for hero section
+    // Parallax effect for hero section: desktop / tablet only
     if (hero) {
->>>>>>> b603901d12a2b3c289a9108c4a5be2117ef95d13
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        hero.style.opacity = 1 - scrolled / 600;
-    } else {
-        // Mobile: keep hero content fixed and fully visible
-        hero.style.transform = 'translateY(0)';
-        hero.style.opacity = 1;
+        if (window.innerWidth > 768) {
+            // Desktop / large tablet: subtle parallax + fade
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            hero.style.opacity = 1 - scrolled / 600;
+        } else {
+            // Mobile: keep hero content fixed and fully visible
+            hero.style.transform = 'translateY(0)';
+            hero.style.opacity = 1;
+        }
     }
 }, 16); // ~60fps
 
