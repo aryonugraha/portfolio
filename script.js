@@ -191,20 +191,45 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add active state to nav links on scroll
-window.addEventListener('scroll', () => {
+// Throttle function to improve scroll performance
+function throttle(func, delay) {
+    let timeoutId;
+    let lastRan;
+    return function() {
+        const context = this;
+        const args = arguments;
+        if (!lastRan) {
+            func.apply(context, args);
+            lastRan = Date.now();
+        } else {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(function() {
+                if ((Date.now() - lastRan) >= delay) {
+                    func.apply(context, args);
+                    lastRan = Date.now();
+                }
+            }, delay - (Date.now() - lastRan));
+        }
+    }
+}
+
+// Consolidated scroll event handler with throttling
+const handleScroll = throttle(() => {
+    const scrolled = window.pageYOffset;
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
+    const navbar = document.querySelector('.navbar');
+    const hero = document.querySelector('.hero-content');
     
+    // Update active nav link
     let current = '';
-    const navHeight = document.querySelector('.navbar').offsetHeight;
+    const navHeight = navbar.offsetHeight;
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop - navHeight - 100;
         const sectionHeight = section.clientHeight;
         
-        if (window.pageYOffset >= sectionTop && 
-            window.pageYOffset < sectionTop + sectionHeight) {
+        if (scrolled >= sectionTop && scrolled < sectionTop + sectionHeight) {
             current = section.getAttribute('id');
         }
     });
@@ -217,12 +242,12 @@ window.addEventListener('scroll', () => {
     });
     
     // Add shadow to navbar on scroll
-    const navbar = document.querySelector('.navbar');
-    if (window.pageYOffset > 50) {
+    if (scrolled > 50) {
         navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
     } else {
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
     }
+<<<<<<< HEAD
 });
 
 // Parallax effect for hero section (desktop / tablet only)
@@ -233,6 +258,11 @@ window.addEventListener('scroll', () => {
 
     if (window.innerWidth > 768) {
         // Desktop / large tablet: keep subtle parallax + fade
+=======
+    
+    // Parallax effect for hero section
+    if (hero) {
+>>>>>>> b603901d12a2b3c289a9108c4a5be2117ef95d13
         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
         hero.style.opacity = 1 - scrolled / 600;
     } else {
@@ -240,7 +270,9 @@ window.addEventListener('scroll', () => {
         hero.style.transform = 'translateY(0)';
         hero.style.opacity = 1;
     }
-});
+}, 16); // ~60fps
+
+window.addEventListener('scroll', handleScroll);
 
 // Animate skill bars when they come into view
 const skillBars = document.querySelectorAll('.skill-bar');
@@ -262,22 +294,6 @@ document.querySelectorAll('.timeline-content').forEach(content => {
         this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
     });
 });
-
-// Typing effect for hero title (optional enhancement)
-function typeEffect(element, text, speed = 100) {
-    let i = 0;
-    element.textContent = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
 
 // Add loading animation
 window.addEventListener('load', () => {
