@@ -646,7 +646,11 @@ body {
     }
 }
 
-@media (min-width: 900px) and (max-width: 1200px) {
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .hero {
+		padding-top: 120px;
+	}
+
     .hero-inner {
         align-items: center;
         gap: 2.5rem;
@@ -668,7 +672,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .navbar .container {
         gap: 1rem;
     }
@@ -706,10 +710,6 @@ body {
 
     .nav-link {
         font-size: 1rem;
-    }
-
-    .hero {
-        padding-top: 68px;
     }
 
     .scroll-indicator {
@@ -771,7 +771,7 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1023px) {
     html {
         font-size: 90%;
     }
@@ -781,7 +781,7 @@ body {
     }
 
     .hero {
-        padding-top: 112px;
+        padding-top: 120px;
     }
 
     .hero h1 {
@@ -799,5 +799,6 @@ body {
     .hero-photo-card {
         width: 220px;
         height: 280px;
+        margin-top: 1.5rem;
     }
 }

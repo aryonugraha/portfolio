@@ -250,10 +250,10 @@ const handleScroll = throttle(() => {
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
     }
 
-    // Parallax effect for hero section: desktop / tablet only
+    // Parallax effect for hero section: desktop only
     if (hero) {
-        if (window.innerWidth > 768) {
-            // Desktop / large tablet: subtle parallax + fade
+        if (window.innerWidth > 1024) {
+            // Desktop: subtle parallax + fade
             hero.style.transform = `translateY(${scrolled * 0.5}px)`;
             hero.style.opacity = 1 - scrolled / 600;
         } else {
