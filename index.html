@@ -3,16 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Aryo Nugraha</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Aryo Nugraha – Principal Solutions Architect</title>
+    <meta name="description" content="Portfolio of Aryo Nugraha, Senior Technical Project Manager and Solution Architect specializing in conversational AI, omnichannel experiences, data analytics, and digital transformation for travel, telco, banking, and healthcare.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://your-domain.com/">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aryo Nugraha – Principal Solutions Architect">
+    <meta property="og:description" content="I turn complex ideas into reliable, real-world experiences using conversational AI, omnichannel platforms, and data-driven architecture.">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:image" content="https://your-domain.com/foto.jpeg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aryo Nugraha – Principal Solutions Architect">
+    <meta name="twitter:description" content="Senior Technical Project Manager and Solution Architect focused on conversational AI, omnichannel journeys, and data analytics.">
+    <meta name="twitter:image" content="https://your-domain.com/foto.jpeg">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">Portfolio</div>
-            <ul class="nav-menu">
-                <li><a href="#overview" class="nav-link">Overview</a></li>
+            <a href="#overview" class="nav-brand">
+                <img src="logo.png" alt="Aryo Nugraha – Digital Consultant logo" class="nav-logo">
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
+                <svg class="nav-toggle-icon" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+                    <rect x="2" y="1" width="20" height="3" rx="1.5"></rect>
+                    <rect x="2" y="7.5" width="20" height="3" rx="1.5"></rect>
+                    <rect x="2" y="14" width="20" height="3" rx="1.5"></rect>
+                </svg>
+            </button>
+            <ul class="nav-menu" id="primary-menu">
+                <li><a href="#overview" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
             </ul>
@@ -22,16 +50,27 @@
     <!-- Hero / Overview Section -->
     <section id="overview" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="fade-in-up">Hello, I'm <span class="highlight">Aryo Nugraha</span></h1>
-                <p class="subtitle fade-in-up delay-1">Software Developer | Problem Solver | Tech Enthusiast</p>
-                <p class="description fade-in-up delay-2">
-                    Passionate about creating elegant solutions to complex problems. 
-                    I specialize in building scalable applications and delivering high-quality software.
-                </p>
-                <div class="cta-buttons fade-in-up delay-3">
-                    <a href="#experience" class="btn btn-primary">View My Work</a>
-                    <a href="#capabilities" class="btn btn-secondary">My Skills</a>
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1 class="fade-in-up">Hello, I'm <span class="highlight">Aryo Nugraha</span></h1>
+                    <p class="subtitle fade-in-up delay-1">Senior Technical Project Manager | Solution Architect | Data &amp; AI Enthusiast</p>
+                    <p class="description fade-in-up delay-2">
+                        I help enterprises turn complex requirements into smooth digital experiences. I’ve worked on everything from cruise line journeys to personalized learning platforms, always with a focus on reliability.
+                    </p>
+                    <p class="description fade-in-up delay-2">
+                        I work right where Conversational AI, Omnichannel Strategy, and Data Architecture meet. Over the years, I've helped clients in Telco, Banking, Healthcare, and Travel build systems that feel natural to use.
+                    </p>
+                    <p class="description fade-in-up delay-2">
+                        My approach is simple: I practice "Experience-First Architecture." This ensures that the backend logic and the frontend copy align with the user's emotional state, rather than just the product requirements document.
+                    </p>
+                    <div class="cta-buttons fade-in-up delay-3">
+                        <a href="#experience" class="btn btn-primary">View My Work</a>
+                        <a href="#capabilities" class="btn btn-secondary">My Skills</a>
+                    </div>
+                </div>
+                <div class="hero-photo-card fade-in-up delay-2">
+                    <div class="hero-photo-glow"></div>
+                    <img src="foto.jpeg" alt="Portrait of Aryo Nugraha" class="hero-photo" />
                 </div>
             </div>
         </div>
@@ -47,30 +86,43 @@
             <h2 class="section-title">Professional Experience</h2>
             <div class="timeline">
                 <div class="timeline-item fade-in-left">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2024</div>
                     <div class="timeline-content">
-                        <h3>Senior Software Developer</h3>
-                        <span class="timeline-date">2022 - Present</span>
-                        <p>Leading development of scalable web applications and mentoring junior developers. 
-                           Implemented modern architectures and best practices across multiple projects.</p>
+                        <h3>Senior Technical Project Manager</h3>
+                        <span class="timeline-date">Sep 2024 - Present &mdash; 2VizCon GmbH</span>
+                        <p>Manage end-to-end technical projects for international clients, from scoping and solution design to deployment and UAT, coordinating distributed teams and ensuring timelines, budgets, and quality are aligned.</p>
                     </div>
                 </div>
                 <div class="timeline-item fade-in-left delay-1">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2023</div>
                     <div class="timeline-content">
-                        <h3>Software Developer</h3>
-                        <span class="timeline-date">2019 - 2022</span>
-                        <p>Developed and maintained full-stack applications using modern technologies. 
-                           Collaborated with cross-functional teams to deliver high-quality solutions.</p>
+                        <h3>Principal Solution Architect</h3>
+                        <span class="timeline-date">Sep 2023 - Aug 2024 &mdash; PT AMAN BERSAMA SAHABAT (Amansob)</span>
+                        <p>Designed strategic, secure solutions based on client business needs, led presales activities and technical proposals, and worked with cross-functional teams to deliver projects that met SOC standards and client expectations.</p>
                     </div>
                 </div>
                 <div class="timeline-item fade-in-left delay-2">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2022</div>
                     <div class="timeline-content">
-                        <h3>Junior Developer</h3>
-                        <span class="timeline-date">2017 - 2019</span>
-                        <p>Started career building responsive web applications and learning industry best practices. 
-                           Gained expertise in various programming languages and frameworks.</p>
+                        <h3>Head of Project &amp; Solution</h3>
+                        <span class="timeline-date">Jan 2022 - Jun 2023 &mdash; PT YESBOSS GROUP INDONESIA (Kata.ai)</span>
+                        <p>Led project and solution delivery for conversational AI and omnichannel platforms, ensured high system availability and 100% ticket resolution, and managed customer journeys from presales to ongoing support.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in-left delay-3">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <h3>Technical Account Manager</h3>
+                        <span class="timeline-date">Sep 2018 - Dec 2021 &mdash; PT YESBOSS GROUP INDONESIA (Kata.ai)</span>
+                        <p>Built and led a 24/7 technical support team, drove product adoption and client satisfaction, and partnered with product, engineering, and business teams to deliver chatbot, WhatsApp Business API, and analytics solutions for enterprise clients.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in-left delay-4">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h3>Senior Application Developer</h3>
+                        <span class="timeline-date">May 2015 - Aug 2018 &mdash; PT BINARA GUNA MEDIKTAMA (RS Pondok Indah Group)</span>
+                        <p>Led application development projects, including a hospital mobile app rollout, overseeing requirements, testing, deployment, and user training to ensure smooth adoption across departments.</p>
                     </div>
                 </div>
             </div>
@@ -81,37 +133,23 @@
     <section id="capabilities" class="capabilities">
         <div class="container">
             <h2 class="section-title">Capabilities & Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card fade-in-up">
-                    <div class="skill-icon">💻</div>
-                    <h3>Frontend Development</h3>
-                    <p>HTML, CSS, JavaScript, React, Vue.js, TypeScript</p>
-                    <div class="skill-level">
-                        <div class="skill-bar" style="width: 90%"></div>
+            <div class="skills-analytics-grid">
+                <div class="skills-analytics-card fade-in-up">
+                    <div class="skills-analytics-header">
+                        <h3>Technical Skills Analytics</h3>
+                        <p>How strong I am across the core platforms, data, and architecture work.</p>
+                    </div>
+                    <div class="skills-analytics-chart">
+                        <canvas id="technicalSkillsChart"></canvas>
                     </div>
                 </div>
-                <div class="skill-card fade-in-up delay-1">
-                    <div class="skill-icon">⚙️</div>
-                    <h3>Backend Development</h3>
-                    <p>Node.js, Python, Java, API Design, Database Management</p>
-                    <div class="skill-level">
-                        <div class="skill-bar" style="width: 85%"></div>
+                <div class="skills-analytics-card fade-in-up delay-1">
+                    <div class="skills-analytics-header">
+                        <h3>Managerial Skills Analytics</h3>
+                        <p>Where I show up on delivery, operations, and presales leadership.</p>
                     </div>
-                </div>
-                <div class="skill-card fade-in-up delay-2">
-                    <div class="skill-icon">☁️</div>
-                    <h3>Cloud & DevOps</h3>
-                    <p>AWS, Docker, Kubernetes, CI/CD, Microservices</p>
-                    <div class="skill-level">
-                        <div class="skill-bar" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-card fade-in-up delay-3">
-                    <div class="skill-icon">🎨</div>
-                    <h3>Design & UX</h3>
-                    <p>UI/UX Design, Responsive Design, Accessibility</p>
-                    <div class="skill-level">
-                        <div class="skill-bar" style="width: 75%"></div>
+                    <div class="skills-analytics-chart">
+                        <canvas id="managerialSkillsChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -123,9 +161,19 @@
         <div class="container">
             <p>&copy; 2026 Aryo Nugraha. All rights reserved.</p>
             <div class="social-links">
-                <a href="#" class="social-link">LinkedIn</a>
-                <a href="#" class="social-link">GitHub</a>
-                <a href="#" class="social-link">Email</a>
+                <a href="https://www.linkedin.com/in/aryo-nugraha-21833351/" class="social-link social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-svg">
+                        <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.25 8.25H4.75V24H.25V8.25zM8.5 8.25H12.8V10.1H12.86C13.45 9.02 14.86 7.9 16.96 7.9 21.4 7.9 22.25 10.82 22.25 14.7V24H17.75V15.9C17.75 13.98 17.71 11.5 15.25 11.5 12.75 11.5 12.4 13.6 12.4 15.75V24H7.9V8.25H8.5z" />
+                    </svg>
+                </a>
+                <a href="https://github.com/aryonugraha" class="social-link social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-svg">
+                        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.42 7.88 10.95.58.12.79-.25.79-.55 0-.27-.01-1.17-.02-2.13-3.21.7-3.89-1.39-3.89-1.39-.53-1.34-1.29-1.7-1.29-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.72 1.26 3.38.96.11-.76.41-1.26.74-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.58.23 2.75.11 3.04.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.28 5.68.42.36.79 1.09.79 2.2 0 1.59-.02 2.87-.02 3.26 0 .3.21.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+                    </svg>
+                </a>
+                <a href="mailto:anugraha@amansob.com" class="footer-cta" aria-label="Email Aryo for professional services">
+                    <span>Work with me</span>
+                </a>
             </div>
         </div>
     </footer>

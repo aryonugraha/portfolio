@@ -21,10 +21,157 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(item);
     });
 
-    const skillCards = document.querySelectorAll('.skill-card');
-    skillCards.forEach(card => {
+    const skillsCards = document.querySelectorAll('.skills-analytics-card');
+    skillsCards.forEach(card => {
         observer.observe(card);
     });
+
+    const technicalCanvas = document.getElementById('technicalSkillsChart');
+    const managerialCanvas = document.getElementById('managerialSkillsChart');
+
+    if (technicalCanvas && window.Chart) {
+        const tctx = technicalCanvas.getContext('2d');
+        new Chart(tctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Omnichannel',
+                    'Conversational AI',
+                    'Generative AI',
+                    'Data Analytics',
+                    'Solution & Architecture'
+                ],
+                datasets: [{
+                    data: [90, 95, 80, 95, 90],
+                    backgroundColor: 'rgba(192, 57, 43, 0.85)',
+                    borderColor: 'rgba(236, 240, 241, 1)',
+                    borderWidth: 1,
+                    borderRadius: 10,
+                    borderSkipped: false,
+                    hoverBackgroundColor: 'rgba(22, 160, 133, 0.95)'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(11, 16, 23, 0.95)',
+                        borderColor: 'rgba(52, 73, 94, 0.8)',
+                        borderWidth: 1,
+                        titleColor: '#e5e7eb',
+                        bodyColor: '#e5e7eb',
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'rgba(236, 240, 241, 0.85)',
+                            font: { size: 11 }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            color: 'rgba(149, 165, 166, 0.7)'
+                        },
+                        grid: {
+                            color: 'rgba(22, 160, 133, 0.3)'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    if (managerialCanvas && window.Chart) {
+        const mctx = managerialCanvas.getContext('2d');
+        new Chart(mctx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'Project Management',
+                    'Operational Support',
+                    'Presales Support'
+                ],
+                datasets: [{
+                    data: [80, 90, 95],
+                    backgroundColor: 'rgba(22, 160, 133, 0.25)',
+                    borderColor: 'rgba(22, 160, 133, 1)',
+                    pointBackgroundColor: '#C0392B',
+                    pointBorderColor: '#0f172a',
+                    pointRadius: 4,
+                    pointHoverRadius: 5,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(11, 16, 23, 0.95)',
+                        borderColor: 'rgba(52, 73, 94, 0.8)',
+                        borderWidth: 1,
+                        titleColor: '#e5e7eb',
+                        bodyColor: '#e5e7eb',
+                        displayColors: false
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        suggestedMin: 60,
+                        suggestedMax: 100,
+                        angleLines: {
+                            color: 'rgba(52, 73, 94, 0.7)'
+                        },
+                            grid: {
+                            color: 'rgba(22, 160, 133, 0.35)'
+                        },
+                        pointLabels: {
+                            color: 'rgba(236, 240, 241, 0.9)',
+                            font: { size: 11 }
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            document.body.classList.toggle('nav-open', isOpen);
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('open')) {
+                    navMenu.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    document.body.classList.remove('nav-open');
+                }
+            });
+        });
+    }
 });
 
 // Smooth scrolling for navigation links
@@ -78,13 +225,20 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Parallax effect for hero section
+// Parallax effect for hero section (desktop / tablet only)
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero-content');
-    if (hero) {
+    if (!hero) return;
+
+    if (window.innerWidth > 768) {
+        // Desktop / large tablet: keep subtle parallax + fade
         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
         hero.style.opacity = 1 - scrolled / 600;
+    } else {
+        // Mobile: keep hero content fixed and fully visible
+        hero.style.transform = 'translateY(0)';
+        hero.style.opacity = 1;
     }
 });
 
