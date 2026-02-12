@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+    portfolioCards.forEach(card => {
+        observer.observe(card);
+    });
+
     const technicalCanvas = document.getElementById('technicalSkillsChart');
     const managerialCanvas = document.getElementById('managerialSkillsChart');
 
